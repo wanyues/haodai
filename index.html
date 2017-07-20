@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+		<style type="text/css">
+			.content{
+				margin: 0 auto;
+				width: 400px;
+				background: rgba(0,0,0,0.5);
+				color: #fff;
+				text-align: center;
+				padding: 25px 20px;
+			}
+			h3{
+				font-size: 30px;
+			}
+			p{
+				height: 30px;
+				line-height: 30px;
+				width: 80%;
+				margin: 0 auto;
+			}
+			p span{
+				float: left;
+			}
+			i{
+				float: right;
+				font-style: normal;
+			}
+			div>div{
+				padding:0  5px;
+				background: #fff;
+				width: 300px;
+				margin: 0 auto;
+				color: #000;
+				line-height: 40px;
+				position: relative;
+			}
+			ul{
+				z-index: 1;
+				width: 300px;
+				text-align: left;
+				padding: 5px;
+				left: 0;
+				position: absolute;
+				display: none;
+				background: #fff;
+				color: #000;
+			}
+			li{
+				height: 30px;
+				line-height: 30px;
+				border-bottom: 1px solid #fafafa;
+			}
+			.ul1{
+				float: right;
+				height: 40px;
+				width: 30px;
+				border-left: 1px solid #ccc;
+				cursor: pointer;
+				line-height: 40px;
+			}
+			.anniu{
+				font-size: 20px;
+				background: #0094EF;
+				color: #fff;
+				margin-top: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<h3>快速搜索消费贷款</h3>
+			<p><span>贷款金额：</span><i>不足一万可用小数点代替</i></p>
+			<div class="div">
+				<input type="text" value="5" />
+				<span>万元</span>
+				<div class="fa fa-aw fa-angle-down ul1"></div>
+				<ul class="box">
+					<li><span>5</span><i>万元</i></li>
+					<li><span>10</span><i>万元</i></li>
+					<li><span>15</span><i>万元</i></li>
+					<li><span>20</span><i>万元</i></li>
+					<li><span>25</span><i>万元</i></li>
+					<li><span>30</span><i>万元</i></li>
+				</ul>
+			
+			</div>
+			<p><span>贷款期限：</span></p>
+			<div class="div">
+				<input type="text" value="1" />
+				<span class="span">年</span>
+				<div class="fa fa-aw fa-angle-down ul1"></div>
+				<ul class="box">
+					<li><span>6</span><i>月</i></li>
+					<li><span>1</span><i>年</i></li>
+					<li><span>18</span><i>月</i></li>
+					<li><span>2</span><i>年</i></li>
+					<li><span>3</span><i>年</i></li>
+					<li><span>5</span><i>年</i></li>
+				</ul>
+			</div>
+			<div class="anniu">
+				搜索一下
+			</div>
+			<p>
+				6194种信贷产品   2000家银行  140家小贷公司
+			</p>
+		</div>
+	</body>
+	<script src="jquery.3.1.1.js"></script>
+	<script type="text/javascript">
+		$(".ul1").click(function(ev){
+			ev.stopPropagation()
+			$(this).next().toggle()
+			$(this).parents(".div").siblings().find(".box").hide()
+		})
+		$(".box>li").click(function(){
+			$(this).parents(".div").find("input").val($(this).find("span").html())
+			$(this).parents(".div").find(".span").html($(this).find("i").html())
+			$(this).parent().hide()
+		})
+		$(".box>li").hover(function(){
+			
+			$(this).css("background","lightblue")
+		},function(){
+			$(this).css("background","#fff")
+		})
+		$(document).click(function(){
+			$(".xl").next().hide()	
+		
+		})
+		
+	</script>
+</html>
